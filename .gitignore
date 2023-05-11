@@ -1,0 +1,4 @@
+# General ignore files
+
+Pipfile
+Pipfile.lock
