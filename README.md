@@ -1,6 +1,6 @@
 <h1 align="center">Steam learning</h1>
 
-![banner]('./docs/img/banner.png')
+![banner](./docs/img/banner.png)
 
 ## Members 🕹️
 - Ashley Dafne Aguilar Salinas - UNAM ENES Morelia 
