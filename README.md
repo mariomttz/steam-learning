@@ -1,11 +1,11 @@
-<h1 align="center">Steam learning</h1>
+<h1 align="center">👾 Steam Learning 👾</h1>
 
-![banner](./docs/img/banner.png)
+![banner](./docs/img/steam_banner.jpeg)
 
 ## Members 🕹️
-- Ashley Dafne Aguilar Salinas - UNAM ENES Morelia 
-- Jorge Jacuinde Mayés - UNAM ENES Morelia
-- Mario Alberto Martinez Oliveros - UNAM ENES Morelia
+- [Ashley Dafne Aguilar Salinas - UNAM ENES Morelia](https://github.com/AshleyDafneAguilar)
+- [Jorge Jacuinde Mayés - UNAM ENES Morelia](https://github.com/JuipoMinutes)
+- [Mario Alberto Martinez Oliveros - UNAM ENES Morelia](https://github.com/mariomttz)
 
 ## Introduction 📜
 The video game industry is one of the largest branches of the market today, in Mexico alone revenues increased from 0.84 billion dollars to 1.73 in 2012 [(Staff, 2022)](https://www.forbes.com.mx/la-industria-del-videojuego-en-mexico-represento-1-73-billones-de-dolares-en-2021/), for this and many other reasons, the industry is a great sea of possibilities for software developers.  
@@ -32,7 +32,8 @@ The creation of an AI model that predicts the rating by the audience of some pot
     - NumPy
     - Pandas
     - Sklearn
-    - JSON
+    - JSON  
+
 The API we will use will be the one provided by ["SteamSpy"](https://steamspy.com/).
 
 ## Architecture 🧭
@@ -47,6 +48,9 @@ It will be the module that will provide the necessary algorithms for the creatio
 
 ### Publication 💻
 In this module we will host both the "promt" where you can access the model predictions as a user and the about page of the same project.
+
+## Modules workflow 🔩
+To see the workflow of the modules and some examples, [click here](./docs/info/modules_workflow.md).
 
 ## References 🔍
 - Staff, F. (2022). Mexico's video game industry accounted for $1.73 billion in 2021. Forbes Mexico [https://www.forbes.com.mx/la-industria-del-videojuego-en-mexico-represento-1-73-billones-de-dolares-en-2021/](https://www.forbes.com.mx/la-industria-del-videojuego-en-mexico-represento-1-73-billones-de-dolares-en-2021/).
