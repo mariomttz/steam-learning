@@ -1,6 +1,6 @@
 <h1 align="center">Steam learning</h1>
 
-![banner](./docs/img/banner.png)
+![banner](./docs/img/steam_banner.jpeg)
 
 ## Members 🕹️
 - Ashley Dafne Aguilar Salinas - UNAM ENES Morelia 
@@ -47,6 +47,9 @@ It will be the module that will provide the necessary algorithms for the creatio
 
 ### Publication 💻
 In this module we will host both the "promt" where you can access the model predictions as a user and the about page of the same project.
+
+## Modules workflow 🔩
+To see the workflow of the modules and some examples, [click here](./docs/info/modules_workflow.md).
 
 ## References 🔍
 - Staff, F. (2022). Mexico's video game industry accounted for $1.73 billion in 2021. Forbes Mexico [https://www.forbes.com.mx/la-industria-del-videojuego-en-mexico-represento-1-73-billones-de-dolares-en-2021/](https://www.forbes.com.mx/la-industria-del-videojuego-en-mexico-represento-1-73-billones-de-dolares-en-2021/).
