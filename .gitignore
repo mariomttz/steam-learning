@@ -1,4 +1,6 @@
 # General ignore files
 
+/acquisition/db_config.py
+
 Pipfile
 Pipfile.lock
