@@ -1,7 +1,7 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-def rangeCalculator(datos: list) -> int:
+def range_calculator(datos: list) -> int:
     resultado = (datos[0] * 100)/(datos[0] + datos[1])
 
     if 0 <= resultado <= 20:
