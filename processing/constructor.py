@@ -36,8 +36,6 @@ dictforDF = {'review_range': [], 'fecha': [], 'appid': [], 'precio': [], 'Action
             'Bullet_Hell': [], 'Top_Down': [], 'Walking_Simulator': [], 'Dungeon_Crawler': [], 'JRPG': [], 'Fighting': [], 'Colorful': []} # Dictionary for the DF creation
 
 for data in cur:
-    print(data)
-    print(type(data))
     for llave in range(len(dictforDF.keys())):
         if llave < 4:
             dictforDF[list(dictforDF.keys())[llave]].append(data[llave])

@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+
 # Libraries
 from cleaner import cleaner_data
 from time import sleep
@@ -10,6 +11,7 @@ import requests
 import mariadb
 import json
 import sys
+from random import random
 
 # Functions
 # Spider main function 
@@ -55,14 +57,21 @@ def main(url: str):
     # Iterate on the data and
     # make the insertions in the database
     for key, value in steam_data.items():
-        sql_instruction = cleaner_data('value', date)
+
+        appid = value["appid"] #Get the appid
+        realvalue = requests.get("https://steamspy.com/api.php?request=appdetails&appid="+str(appid)) #Get response from API
+        sql_instruction = cleaner_data(realvalue.text, date) #Create SQL
+        sleep(1+random()) #Sleep to not exceed API Time limit
+
 
         # References https://mariadb.com/resources/blog/how-to-connect-python-programs-to-mariadb/
         # For this part of the code
 
         # Insert the information
         try:
-            cursor.execute(sql_cursor)
+
+            cur.execute(sql_instruction)
+
 
         except mariadb.Error as e:
             continue
