@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
-<<<<<<< Updated upstream
-=======
+
 
 # Libraries
 from cleaner import cleaner_data
@@ -110,4 +109,3 @@ if __name__ == '__main__':
     url = 'https://steamspy.com/api.php?request=tag&tag=Hardware'
 
     main(url)
->>>>>>> Stashed changes
