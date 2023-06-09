@@ -1,22 +1,22 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-def range_calculator(datos: list) -> int:
-    resultado = (datos[0] * 100)/(datos[0] + datos[1])
+def range_calculator(data: list) -> int:
+    result = (data[0] * 100)/(data[0] + data[1])
 
-    if 0 <= resultado <= 20:
-        resultado = 1
+    if 0 <= result <= 20:
+        result = 1
 
-    elif 20 < resultado <= 40:
-        resultado = 2
+    elif 20 < result <= 40:
+        result = 2
 
-    elif 40 < resultado <= 60:
-        resultado = 3
+    elif 40 < result <= 60:
+        result = 3
 
-    elif 60 < resultado <= 80:
-        resultado = 4
+    elif 60 < result <= 80:
+        result = 4
 
-    elif 80 < resultado <= 100:
-        resultado = 5
+    elif 80 < result <= 100:
+        result = 5
 
-    return resultado
+    return result
