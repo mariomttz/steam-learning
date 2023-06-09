@@ -4,7 +4,7 @@
 def cleaner(json_string: str, date: str):
     # Libraries and packages
     import json
-    from review import rangeCalculator
+    from review import range_calculator
 
     # The game tags we will use
     realTags = ['Action', 'Adventure', 'Singleplayer', 'Casual', 'Strategy', 'Simulation',
@@ -29,7 +29,7 @@ def cleaner(json_string: str, date: str):
 
     # Create the first half of the sql instruction
     sql1 = "INSERT INTO data (review_range, fecha, appid, precio, " 
-    sql2 = ") VALUES (" + str(rangeCalculator([diction["positive"], diction["negative"]])) + ", " + date + ", " + str(diction["appid"]) + ", " + diction["price"] + ", "
+    sql2 = ") VALUES (" + str(range_calculator([diction["positive"], diction["negative"]])) + ", '" + date + "', " + str(diction["appid"]) + ", " + diction["price"] + ", "
 
     # Create the second half of the sql
     for idx in diction["tags"].keys():
@@ -39,13 +39,13 @@ def cleaner(json_string: str, date: str):
             if " " in idx:
                 idx = idx.replace(" ", "_")
 
-            elif "-" in idx:
+            if "-" in idx:
                 idx = idx.replace("-", "_")
 
-            elif "'" in idx:
+            if "'" in idx:
                 idx = idx.replace("'", "")
 
-            elif "&" in idx:
+            if "&" in idx:
                 idx = idx.replace("&", "and")
                 
             # Add tags and values

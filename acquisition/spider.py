@@ -3,6 +3,7 @@
 
 # Libraries
 from cleaner import cleaner
+from colorama import Fore
 from time import sleep
 import db_config
 import datetime
@@ -17,6 +18,8 @@ def main(url: str):
     # DB connector settings
     # References https://mariadb.com/resources/blog/how-to-connect-python-programs-to-mariadb/
     # For this part of the code
+
+    print(Fore.RED + 'Connecting to the database...')
 
     #Connect to MariaDB
     try:
@@ -36,8 +39,12 @@ def main(url: str):
 
     # End part of code
 
+    print(Fore.GREEN + 'Connection successfully completed')
+
     # Number of attempts to get the data
     attempts = 10
+
+    print(Fore.BLUE + 'Getting data...')
 
     # Check the response of the get function
     response_get_data = get_data(url, attempts)
@@ -74,6 +81,7 @@ def main(url: str):
         # Insert the information
         try:
             cur.execute(sql_instruction)
+            print(sql_instruction)
 
         except mariadb.Error as e:
             continue
@@ -82,6 +90,8 @@ def main(url: str):
     
     # Commited the insertions on the db
     conn.commit()
+
+    print(Fore.GREEN + 'Data successfully obtained')
 
     # Finishing the spider
     # Close Connection
@@ -112,7 +122,7 @@ def get_data(url: str, attempts = 5):
 
 if __name__ == '__main__':
     # Source = SteamSpy API, Method = GET, Tag = Indie
-    # url = 'https://steamspy.com/api.php?request=tag&tag=Indie'
-    url = 'https://steamspy.com/api.php?request=tag&tag=Hardware'
+    url = 'https://steamspy.com/api.php?request=tag&tag=Indie'
+    #url = 'https://steamspy.com/api.php?request=tag&tag=Hardware'
 
     main(url)
