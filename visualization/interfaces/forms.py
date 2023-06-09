@@ -10,4 +10,4 @@ class tagsForm(forms.Form):
     fourth = forms.ChoiceField(choices = options, required = True, label = 'Tag #4')
     fifth  = forms.ChoiceField(choices = options, required = True, label = 'Tag #5')
     sixth  = forms.ChoiceField(choices = options, required = True, label = 'Tag #6')
-    price  = forms.FloatField(min_value = 0.0, required = True, label = 'Precio')
+    price  = forms.FloatField(min_value = 0.0, required = True, label = 'Precio (en dólares)')
