@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %} Rating prediction {% endblock %}
+
+{% block content %}
+<!-- Header -->
+<div class="mx-auto p-4" style="width: 700px">
+  <p class="h1 text-center font-monospace">
+    <strong>Predicción de tu calificación</strong>
+  </p>
+</div>
+
+<!-- Content -->
+<div class="mx-auto p-4" style="width: 700px">
+  <p class="h4 text-center font-monospace">
+    Los parámetros seleccionados fueron:
+  </p>
+</div>
+
+<div class="container-sm">
+  <div class="container-sm text-center">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Tag #1</th>
+          <th scope="col">Tag #2</th>
+          <th scope="col">Tag #3</th>
+          <th scope="col">Tag #4</th>
+          <th scope="col">Tag #5</th>
+          <th scope="col">Tag #6</th>
+          <th scope="col">Precio (en dólares)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          {% for tag in tags %}
+          <td>{{ tag }}</td>
+          {% endfor %}
+          <td>{{ price }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="mx-auto p-4" style="width: 700px">
+  <p class="text-center font-monospace">
+    La predicción de la calificación que recibiría tu juego en la plataforma de
+    Steam con estos parámetros sería.
+  </p>
+  <p class="h2 text-center font-monospace">
+    <strong>{{ rating }}</strong>
+  </p>
+  <p class="text-center">
+    <a class="btn btn-outline-primary" href="{% url 'home' %}" role="button"
+      >Regresar al inicio</a
+    >
+  </p>
+</div>
+{% endblock %}
