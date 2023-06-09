@@ -22,7 +22,7 @@ def index(request):
 
                 # We declare the route
                 PATH = '../processing/dataset/'
-                
+
                 # We read the file with the qualification
                 with open(PATH + 'rating.txt', 'r+') as f:
                     qualification = int(f.read())

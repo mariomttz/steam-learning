@@ -1,6 +1,7 @@
 def csv_pred_creator(price: float, tags: list):
     # Libraries
     import pandas as pd
+    import os
 
     # Dictionary for the data frame creation
     dictDf = {'precio': [], 'Action': [], 'Adventure': [], 'Singleplayer': [], 'Casual': [],
@@ -38,6 +39,9 @@ def csv_pred_creator(price: float, tags: list):
 
     # Data frane to csv
     df.to_csv(PATH + 'predict_data.csv')
+
+    # We run the model to predict rating
+    os.system('cd ../processing/ && ./prediction_model.py')
 
 def rating_converter(qualification: int) -> str:
     if qualification == 1:
