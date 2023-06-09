@@ -41,17 +41,17 @@ def csv_pred_creator(price: float, tags: list):
 
 def rating_converter(qualification: int) -> str:
     if qualification == 1:
-        return 'Muy malo'
+        return 'Extremadamente negativas'
 
     elif qualification == 2:
-        return 'Malo'
+        return 'Negativas'
 
     elif qualification == 3:
-        return 'Regular'
+        return 'Variadas'
 
     elif qualification == 4:
-        return 'Bueno'
+        return 'Positivas'
 
     elif qualification == 5:
-        return 'Muy bueno'
+        return 'Extremadamente positivas'
     
