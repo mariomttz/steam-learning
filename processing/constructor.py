@@ -1,22 +1,41 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
-import mariadb
+# Libraries
 import pandas as pd
+import db_config
+import mariadb
 
+# DB connector settings
+# References https://mariadb.com/resources/blog/how-to-connect-python-programs-to-mariadb/
+# For this part of the code
 
-connection = mariadb.connect(
-    user="root",
-    password="JuipoJaguei31",
-    host="127.0.0.1",
-    port=3306,
-    database="steam_learning"
-    ) # Connection to mariadb
-cur = connection.cursor()
+#Connect to MariaDB
+try:
+    conn = mariadb.connect(
+        user = db_config.setting['user'],
+        password = db_config.setting['password'],
+        host = db_config.setting['host'],
+        port = db_config.setting['port'],
+        database = db_config.setting['database']
+    )
 
-cur.execute("select * from data") # Collect ALL data
+except mariadb.Error as e:
+    sys.exit(1)
 
-dictforDF = {'review_range': [], 'fecha': [], 'appid': [], 'precio': [], 'Action': [],
+# Get the cursor
+cur = conn.cursor()
+
+# End part of code
+
+# Collect all data from the db
+db_data = cur.execute("select * from data")
+
+# Close Connection
+conn.close()
+
+# Dictionary for the data frame creation
+dictDf = {'review_range': [], 'fecha': [], 'appid': [], 'precio': [], 'Action': [],
             'Adventure': [], 'Singleplayer': [], 'Casual': [], 'Strategy': [], 'Simulation': [],
             'RPG': [], 'Multiplayer': [], 'Great_Soundtrack': [], 'Atmospheric': [],
             '2D': [], 'Puzzle': [], 'Early_Access': [], 'Open_World': [], 'Story_Rich': [],
@@ -33,15 +52,20 @@ dictforDF = {'review_range': [], 'fecha': [], 'appid': [], 'precio': [], 'Action
             'Mystery': [], 'Shoot_Em_Up': [], 'Dark': [], 'Management': [], 'Survival_Horror': [], 'Hack_and_Slash': [],
             'War': [], 'Historical': [], 'Physics': [], 'Stealth': [], 'Rogue_lite': [], 'PvP': [], 'Realistic': [],
             'Short': [], 'Isometric': [], 'RPGMaker': [], 'Moddable': [], 'Relaxing': [], 'Third_Person_Shooter': [],
-            'Bullet_Hell': [], 'Top_Down': [], 'Walking_Simulator': [], 'Dungeon_Crawler': [], 'JRPG': [], 'Fighting': [], 'Colorful': []} # Dictionary for the DF creation
+            'Bullet_Hell': [], 'Top_Down': [], 'Walking_Simulator': [], 'Dungeon_Crawler': [], 'JRPG': [], 'Fighting': [], 'Colorful': []} 
 
-for data in cur:
-    for llave in range(len(dictforDF.keys())):
+for data in db_data:
+    for llave in range(len(dictDf.keys())):
+
         if llave < 4:
-            dictforDF[list(dictforDF.keys())[llave]].append(data[llave])
+            dictDf[list(dictDf.keys())[llave]].append(data[llave])
+
         else:
-            dictforDF[list(dictforDF.keys())[llave]].append(int.from_bytes(data[llave])) # Appending data to DF
+            # Appending data to the data frame
+            dictDf[list(dictDf.keys())[llave]].append(int.from_bytes(data[llave]))
 
-DF = pd.DataFrame(dictforDF) # Creating DF
+# Creating the data frame
+df = pd.DataFrame(dictDf)
 
-DF.to_csv("./dataset/steam_data.csv") # DF to csv
+# Data frane to csv
+df.to_csv("./dataset/steam_data.csv")
