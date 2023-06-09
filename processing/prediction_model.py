@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
 # Libraries
@@ -27,7 +27,7 @@ model.fit(X, y)
 X_pred = pd.read_csv(PATH + 'predict_data.csv')
 
 # We predict the qualification
-y_pred = model.predict(X_pred)[0]
+y_pred = str(model.predict(X_pred)[0])
 
 # We write the rating in a file
 with open(PATH + 'rating.txt', 'w') as f:

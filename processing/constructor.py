@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
 # Libraries
@@ -29,10 +29,7 @@ cur = conn.cursor()
 # End part of code
 
 # Collect all data from the db
-db_data = cur.execute("select * from data")
-
-# Close Connection
-conn.close()
+cur.execute("select * from data;")
 
 # Dictionary for the data frame creation
 dictDf = {'review_range': [], 'fecha': [], 'appid': [], 'precio': [], 'Action': [],
@@ -54,7 +51,7 @@ dictDf = {'review_range': [], 'fecha': [], 'appid': [], 'precio': [], 'Action': 
             'Short': [], 'Isometric': [], 'RPGMaker': [], 'Moddable': [], 'Relaxing': [], 'Third_Person_Shooter': [],
             'Bullet_Hell': [], 'Top_Down': [], 'Walking_Simulator': [], 'Dungeon_Crawler': [], 'JRPG': [], 'Fighting': [], 'Colorful': []} 
 
-for data in db_data:
+for data in cur:
     for llave in range(len(dictDf.keys())):
 
         if llave < 4:
@@ -67,5 +64,11 @@ for data in db_data:
 # Creating the data frame
 df = pd.DataFrame(dictDf)
 
+# We declare the route
+PATH = './processing/dataset/'
+
 # Data frane to csv
-df.to_csv("./dataset/steam_data.csv")
+df.to_csv(PATH + "steam_data.csv")
+
+# Close Connection
+conn.close()
