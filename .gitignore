@@ -1,10 +1,12 @@
 # General ignore files
 /visualization/visualization/settings.py
 /acquisition/db_config.py
+/processing/db_config.py
 /visualization/db.sqlite3
 
 Pipfile
 Pipfile.lock
 
 # General ignore directories
+/acquisition/__pycache__/*
 /visualization/interfaces/migrations/*
