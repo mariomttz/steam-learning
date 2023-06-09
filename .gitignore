@@ -8,5 +8,7 @@ Pipfile
 Pipfile.lock
 
 # General ignore directories
-/acquisition/__pycache__/*
+/visualization/visualization/__pycache__/*
+/visualization/interfaces/__pycache__/*
 /visualization/interfaces/migrations/*
+/acquisition/__pycache__/*
