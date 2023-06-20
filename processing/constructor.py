@@ -28,6 +28,8 @@ cur = conn.cursor()
 
 # End part of code
 
+
+
 # Collect all data from the db
 cur.execute("select * from data;")
 
@@ -51,15 +53,23 @@ dictDf = {'review_range': [], 'fecha': [], 'appid': [], 'precio': [], 'Action': 
             'Short': [], 'Isometric': [], 'RPGMaker': [], 'Moddable': [], 'Relaxing': [], 'Third_Person_Shooter': [],
             'Bullet_Hell': [], 'Top_Down': [], 'Walking_Simulator': [], 'Dungeon_Crawler': [], 'JRPG': [], 'Fighting': [], 'Colorful': []} 
 
+
+
+# we iterate over each tuple (row) in the database
+
 for data in cur:
+    # data  is a tuple (database row) with 'len(dictDf.keys()' attributes (database columns)	
+    
     for llave in range(len(dictDf.keys())):
+       # Appending data to the data frame
 
         if llave < 4:
             dictDf[list(dictDf.keys())[llave]].append(data[llave])
 
         else:
-            # Appending data to the data frame
+            # the byte value is exchanged for an int value using the int.from_bytes() method
             dictDf[list(dictDf.keys())[llave]].append(int.from_bytes(data[llave]))
+
 
 # Creating the data frame
 df = pd.DataFrame(dictDf)

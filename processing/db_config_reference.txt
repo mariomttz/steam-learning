@@ -1,0 +1,11 @@
+This document describes the db_config.py python script that is used to connect to the database (mariadb) in the constructor.py script. db_config.py is a python script that contains a dictionary (setting) this dictionary has the following structure:
+
+setting = {
+	'user': 'root',
+	'password':'password' ,
+	'host': '127.0.0.1',
+	'port': 3306,
+	'database': 'steam_learning'}
+	
+The script contains the real data or values ​​to connect to the database, for security this script is not uploaded to github.
+
