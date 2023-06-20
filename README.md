@@ -37,16 +37,16 @@ The creation of an AI model that predicts the rating by the audience of some pot
 The API we will use will be the one provided by ["SteamSpy"](https://steamspy.com/).
 
 ## Architecture 🧭
-### Acquisition 📥
+### Acquisition (Mario) 📥
 It will be the module in charge of obtaining data from the API, through the programming of a data acquirer, which will be executed every day.
 
-### Storage 🫙
+### Storage (Jorge) 🫙
 This module will store the "raw" data to be obtained from the API, to be later cleaned by another program, and stored again for later use.
 
-### Processing ⚙️
+### Processing (Ashley) ⚙️
 It will be the module that will provide the necessary algorithms for the creation of the CSVs for the training of the AI model that we will use for the prediction. As well as it will also be in charge of creating the algorithm that will train and execute the AI model.
 
-### Publication 💻
+### Publication (Mario) 💻
 In this module we will host both the "promt" where you can access the model predictions as a user and the about page of the same project.
 
 ## Modules workflow 🔩
